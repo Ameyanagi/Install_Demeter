@@ -5,24 +5,27 @@ Demeter is a package to process and analyze X-ray absorption spectroscopy(XAS).
 This manual is a modification of David Hughes' guide. 
 [Installation of Demeter in Ubuntu 12.04](http://bruceravel.github.io/demeter/documents/SinglePage/demeter_nonroot.html)
 
-I had to make modifications since the ifeffit was removed from Ubuntu 20.04 repository and some of the packages were updated.
+I had to make modifications since the ifeffit was re
+
+## Installation of Multipass (virtual machine for ubuntu)
+Download Multipass from [Multipass](https://multipass.run/)
+After installation, open the Multipass.app, then open the shell.
 
 ## Installation of apt packages (installation of dependencies)
 ```bash
 sudo apt-get install build-essential git gfortran gnuplot liblocal-lib-perl libx11-dev libncurses5-dev libpng-dev libwxgtk3.0-gtk3-dev libmodule-build-perl libwx-perl xauth xterm pgplot5
 ```
-
-## Making work directory
-```bash
-mkdir ~/work
-```
-
 ## Changing to local environment (to prevent using root privilege)
 ```bash
 mkdir ~/local
 echo 'eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)' >> ~/.bashrc
 echo 'export PATH=$HOME/local/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
+```
+
+## Making work directory
+```bash
+mkdir ~/work
 ```
 
 ## Setting Environment Variables
@@ -36,8 +39,8 @@ export WORK_DIR=~/work
 cd $WORK_DIR
 git clone https://github.com/newville/ifeffit
 cd ifeffit
-./configure --prefix=$PREFIX
-sed -i -e 's/TERMCAP_LIB =.*/TERMCAP_LIB =-L\/usr\/lib\/x86_64-linux-gnu\/ -lncurses/g' src/cmdline/Makefile
+./configure --prefix=$PREFIX --build=aarch64-unknown-linux-gnu
+sed -i -e 's/TERMCAP_LIB =.*/TERMCAP_LIB =-L\/usr\/lib\/aarch64-linux-gnu\/ -lncurses/g' src/cmdline/Makefile
 make
 make install
 
@@ -120,5 +123,6 @@ perl Build.PL
 ./Build test
 ./Build install
 ```
+
 
 
