@@ -11,6 +11,12 @@ I had to make modifications since the ifeffit was removed from Ubuntu 20.04 repo
 ```bash
 sudo apt-get install build-essential git gfortran gnuplot liblocal-lib-perl libx11-dev libncurses5-dev libpng-dev libwxgtk3.0-gtk3-dev libmodule-build-perl libwx-perl xauth xterm pgplot5
 ```
+
+## Making work directory
+```bash
+mkdir ~/work
+```
+
 ## Changing to local environment (to prevent using root privilege)
 ```bash
 mkdir ~/local
