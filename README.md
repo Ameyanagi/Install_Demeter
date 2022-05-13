@@ -105,6 +105,8 @@ dhephaestus
 denergy
 ```
 
+X11 over SSH is slow for these app. I would suggest using xrdp or other protocols.
+
 # Updating Demeter
 
 ```bash
