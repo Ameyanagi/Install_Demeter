@@ -1,11 +1,11 @@
 # Manual for installing Demeter in Ubuntu 20.04
-Demeter is a package to process and analyze X-ray absorption spectroscopy(XAS).
-[Demter](https://github.com/bruceravel/demeter)
+Demeter is a package to process and analyze X-ray absorption spectroscopy (XAS).
+[Demeter](https://github.com/bruceravel/demeter)
 
 This manual is a modification of David Hughes' guide. 
 [Installation of Demeter in Ubuntu 12.04](http://bruceravel.github.io/demeter/documents/SinglePage/demeter_nonroot.html)
 
-I had to make modifications since the ifeffit was removed from Ubuntu 20.04 repository and some of the packages were updated.
+I had to make modifications since the ifeffit was removed from Ubuntu 20.04 repository, and some of the packages were updated.
 
 ## Installation of apt packages (installation of dependencies)
 ```bash
@@ -50,7 +50,7 @@ perl Makefile.PL ; make ; make install
 ```bash
 cpan
 ```
-(Enter yes for auto configuration. Typein below in the cpan window. Then press Ctrl+D)
+(Enter yes for auto-configuration. Type in below in the cpan window. Then press Ctrl+D)
 
 ``` bash
 cpan[1]> o conf build_requires_install_policy yes
@@ -71,7 +71,7 @@ perl ./Build.PL
 ```
 (Enter y for all the packages)
 
-There will be a error installing libperl during the installation of demeter.
+There will be a error installing mod_perl during the installation of demeter.
 You can quit by Crtl+C if there is some error installing libperl.
 ```
 Can't stat `../apache_x.x/src'
@@ -79,7 +79,7 @@ Please tell me where I can find your apache src
  [../apache_x.x/src] ../apache_x.x/src
 ```
 
-If there is dependencies missing, try installing again. It will resume.
+If there is dependencies missing, try installing again. The installation will resume by the same command.
 ```bash
 ./Build installdeps
 ```
