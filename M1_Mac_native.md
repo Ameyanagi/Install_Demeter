@@ -30,7 +30,9 @@ xcode-select --install
 ```bash
 brew install kazuakiyama/pgplot/pgplot
 brew install perl gnuplot xquartz
-brew install openssl wxwidgets wxwidgets@3.0
+brew install openssl wxwidgets@3.0
+ln -s /opt/homebrew/bin/wx-config-3.0 /opt/homebrew/bin/wx-config
+ln -s /opt/homebrew/bin/wxrc-3.0 /opt/homebrew/bin/wxrc
 
 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5" cpan local::lib
 echo 'eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"' >> ~/.zshrc
@@ -119,36 +121,6 @@ perl ./Build.PL
 
 
 If dependencies are missing, try installing again. The installation will resume with the same command.
-```bash
-./Build installdeps
-```
-
-There will be error installing wxWidgets. Linking adv can be achieved by following command.
-```
-chmod +w emacs ~/perl5/lib/perl5/darwin-thread-multi-2level/Alien/wxWidgets/Config/mac_3_1_6_uni_nc_0.pm
-emacs ~/perl5/lib/perl5/darwin-thread-multi-2level/Alien/wxWidgets/Config/mac_3_1_6_uni_nc_0.pm
-```
-
-Add entry 'adv' after 'aui'
-```bash
-$Var1 = {
-          '_libraries' => {
-                            'aui' => {
-                                       'dll' => 'libwx_osx_cocoau_aui-3.1.dylib',
-                                       'link' => '-lwx_osx_cocoau_aui-3.1'
-			                         },
-                            'adv' => {
-                                       'dll' => 'libwx_osx_cocoau_adv-3.1.dylib',
-                                       'link' => '-lwx_osx_cocoau_adv-3.1'
-                                     },
-```
-
-replace "3.1" by "3.0"
-```bash
-sed -i -e 's/3\.1/3\.0/g' ~/perl5/lib/perl5/darwin-thread-multi-2level/Alien/wxWidgets/Config/mac_3_1_6_uni_nc_0.pm
-```
-
-Then resume installing the dependencies.
 ```bash
 ./Build installdeps
 ```
