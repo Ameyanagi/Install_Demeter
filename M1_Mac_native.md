@@ -114,7 +114,6 @@ export PERL5LIB=$WORK_DIR/demeter:$PERL5LIB
 perl ./Build.PL
 #This will show the dependencies missing
 
-# export CPPFLAGS="-DwxOSX_USE_QTKIT=0 -D__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=1 $CPPFLAGS"
 ./Build installdeps
 ```
 (Enter y for all the packages)
