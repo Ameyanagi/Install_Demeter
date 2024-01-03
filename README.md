@@ -91,6 +91,8 @@ perl ./Build.PL
 
 ## Installation of Demeter
 ```bash
+sed -i 's/croak(_swigerr)/croak("%s", _swigerr)/g' src/ifeffit_wrap.c
+
 ./Build
 ./Build test
 ./Build install
